@@ -114,7 +114,7 @@
     let video, handPose, hands = [];
     let isReady = false;
     let smoothedAngle = [0, 0], lastTickAngle = [0, 0], smoothedPos = [{ x: 0, y: 0 }, { x: 0, y: 0 }];
-    let mainColor, colors = ['#00ffff', '#ff00ff', '#ffff00'], colorIdx = 0;
+    let mainColor, colors = ['#c084fc', '#f472b6', '#67e8f9'], colorIdx = 0;
     let glitchTimer = 0, osc, envelope, linkOsc;
     let modelCheckTimer = 0;
 
@@ -123,29 +123,29 @@
       { label: 'GLITCH', x: 40, y: 170, w: 90, h: 40, active: false }
     ];
 
-    // 21 個 keypoint 各自獨立顏色 (RGB)
+    // 21 個 keypoint 各自獨立顏色 (RGB) — 鮮豔版
     const POINT_COLORS = [
-      [210, 180, 140],  // 0  wrist        暖駝色
-      [147, 112, 219],  // 1  thumb CMC    中紫
-      [170, 100, 240],  // 2  thumb MCP    亮紫
-      [200, 80, 255],  // 3  thumb IP     紫紅
-      [255, 60, 200],  // 4  thumb TIP    熱粉
-      [100, 220, 80],  // 5  index MCP    草綠
-      [80, 200, 60],  // 6  index PIP    翠綠
-      [60, 220, 40],  // 7  index DIP    亮綠
-      [128, 255, 0],  // 8  index TIP    螢光黃綠
-      [255, 180, 50],  // 9  middle MCP   琥珀橙
-      [255, 150, 30],  // 10 middle PIP   深橙
-      [255, 100, 10],  // 11 middle DIP   橘紅
-      [255, 50, 0],  // 12 middle TIP   火紅
-      [200, 120, 200],  // 13 ring MCP     粉藕
-      [210, 90, 220],  // 14 ring PIP     蘭花紫
-      [220, 60, 240],  // 15 ring DIP     紫粉
-      [200, 30, 255],  // 16 ring TIP     電紫
-      [255, 105, 180],  // 17 pinky MCP    熱粉
-      [255, 140, 160],  // 18 pinky PIP    珊瑚粉
-      [255, 180, 140],  // 19 pinky DIP    桃杏
-      [255, 220, 100],  // 20 pinky TIP    香檳金
+      [230, 200, 160],  // 0  wrist        奶油米
+      [192, 132, 252],  // 1  thumb CMC    淡紫羅蘭
+      [168, 85, 247],  // 2  thumb MCP    紫晶
+      [217, 70, 239],  // 3  thumb IP     洋蔥紫
+      [244, 114, 182],  // 4  thumb TIP    玫瑰粉
+      [74, 222, 128],  // 5  index MCP    翡翠
+      [34, 197, 94],  // 6  index PIP    草地綠
+      [163, 230, 53],  // 7  index DIP    黃綠
+      [250, 204, 21],  // 8  index TIP    金黃
+      [251, 146, 60],  // 9  middle MCP   橘
+      [249, 99, 7],  // 10 middle PIP   深橘
+      [239, 68, 68],  // 11 middle DIP   紅
+      [248, 113, 113],  // 12 middle TIP   淺紅
+      [232, 121, 249],  // 13 ring MCP     紫粉
+      [192, 38, 211],  // 14 ring PIP     魔幻紫
+      [147, 51, 234],  // 15 ring DIP     深紫
+      [99, 102, 241],  // 16 ring TIP     靛紫
+      [236, 72, 153],  // 17 pinky MCP    熱粉
+      [255, 128, 168],  // 18 pinky PIP    珊瑚
+      [255, 182, 193],  // 19 pinky DIP    嬰兒粉
+      [255, 236, 100],  // 20 pinky TIP    香檳金
     ];
 
     function setup() {
@@ -308,13 +308,21 @@
     }
 
     function drawSciFiSkeleton(hand, gx, gy) {
-      stroke(red(mainColor), green(mainColor), blue(mainColor), 80);
       let connections = handPose.getConnections();
+      strokeWeight(1.5);
       for (let i = 0; i < connections.length; i++) {
         let a = connections[i][0], b = connections[i][1];
+        let ca = POINT_COLORS[a] || [200, 200, 200];
+        let cb = POINT_COLORS[b] || [200, 200, 200];
+        // 用端點顏色平均，模擬漸層感
+        let rm = (ca[0] + cb[0]) / 2, gm = (ca[1] + cb[1]) / 2, bm = (ca[2] + cb[2]) / 2;
+        drawingContext.shadowBlur = 8;
+        drawingContext.shadowColor = `rgba(${rm},${gm},${bm},0.6)`;
+        stroke(rm, gm, bm, 140);
         line(map(hand.keypoints[a].x, 0, 640, 0, width) + gx, map(hand.keypoints[a].y, 0, 480, 0, height) + gy,
           map(hand.keypoints[b].x, 0, 640, 0, width) + gx, map(hand.keypoints[b].y, 0, 480, 0, height) + gy);
       }
+      drawingContext.shadowBlur = 0;
     }
 
     function drawAllKeypoints(hand, gx, gy) {
@@ -323,18 +331,21 @@
         let x = map(k.x, 0, 640, 0, width) + gx;
         let y = map(k.y, 0, 480, 0, height) + gy;
         let c = POINT_COLORS[idx] || [200, 200, 200];
-        // 發光暈（善用 drawingContext可開，用兩圈疊加）
+        // canvas glow
+        drawingContext.shadowBlur = 18;
+        drawingContext.shadowColor = `rgba(${c[0]},${c[1]},${c[2]},0.9)`;
         noFill(); strokeWeight(1);
-        stroke(c[0], c[1], c[2], 80);
-        circle(x, y, 18);                         // 外暈圈
-        stroke(c[0], c[1], c[2], 160);
-        circle(x, y, 10);                         // 中圈
+        stroke(c[0], c[1], c[2], 60);
+        circle(x, y, 22);          // 外暈
+        stroke(c[0], c[1], c[2], 150);
+        circle(x, y, 12);          // 中圈
         fill(c[0], c[1], c[2]); noStroke();
-        circle(x, y, 5);                          // 實心
-        // 小指尖與食指尖顯示 ID
+        circle(x, y, 5);           // 實心核
+        drawingContext.shadowBlur = 0;
+        // 五指尖顯示 ID
         if ([4, 8, 12, 16, 20].includes(idx)) {
-          fill(c[0], c[1], c[2], 200);
-          textSize(9); text(`${idx}`, x + 12, y - 8);
+          fill(c[0], c[1], c[2], 220);
+          textSize(9); text(`${idx}`, x + 13, y - 9);
         }
       }
     }
@@ -350,8 +361,19 @@
     }
 
     function drawCursor(tx, ty) {
-      fill(255); circle(tx, ty, 6);
-      noFill(); stroke(mainColor); circle(tx, ty, 20 + sin(frameCount * 10) * 5);
+      // 彩虹脈衝同心圓
+      let t = frameCount * 6;
+      let rings = [[22, 255, 100, 200], [34, 200, 120, 255], [46, 100, 200, 255]];
+      rings.forEach(([r, rc, gc, bc], i) => {
+        let pulse = sin(t + i * 40) * 5;
+        drawingContext.shadowBlur = 12;
+        drawingContext.shadowColor = `rgba(${rc},${gc},${bc},0.8)`;
+        noFill(); strokeWeight(1);
+        stroke(rc, gc, bc, 180);
+        circle(tx, ty, r + pulse);
+      });
+      drawingContext.shadowBlur = 0;
+      fill(255); noStroke(); circle(tx, ty, 5);
     }
 
     function drawScanningUI() {
