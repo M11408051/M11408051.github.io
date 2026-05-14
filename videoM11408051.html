@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吉伊卡哇：療癒糖衣下的社會隱喻</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chiika: {
+                            pink: '#FFD1DC',
+                            blue: '#B6E3F4',
+                            yellow: '#FFF4BD',
+                            dark: '#2D3436',
+                            accent: '#FF7675'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #6c5ce7, #ff7675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .chiika-shadow {
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+        }
+        .report-content p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #4a4a4a;
+        }
+        video {
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        img {
+            transition: transform 0.5s ease;
+        }
+        img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- Hero Section / Infographic Top -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center p-6 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-72 h-72 bg-chiika-pink rounded-full blur-[120px] opacity-50 animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-chiika-blue rounded-full blur-[120px] opacity-50 animate-pulse-slow"></div>
+        
+        <div class="z-10 text-center max-w-4xl mb-12">
+            <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest uppercase bg-white/50 backdrop-blur rounded-full text-chiika-accent border border-chiika-accent/20">
+                Sociological Analysis & Cultural Research
+            </span>
+            <h1 class="font-display text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
+                《吉伊卡哇》<br/><span class="text-gradient">療癒糖衣下的社會隱喻</span>
+            </h1>
+            <div class="flex justify-center gap-4 text-sm font-medium text-gray-500">
+                <span>學號：M11408051</span>
+                <span>•</span>
+                <span>主題探索報告</span>
+            </div>
+        </div>
+
+        <!-- Infographic Container -->
+        <div class="z-10 w-full max-w-6xl chiika-shadow rounded-[2rem] overflow-hidden bg-white animate-float">
+            <img src='https://opal.google/board/blobs/e28c9afe-a9f4-40b2-81c2-174729a5a236' alt='吉伊卡哇 社會心理分析資訊圖表' class="w-full h-auto block" />
+        </div>
+    </header>
+
+    <!-- Abstract Bento Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+        <div class="mb-12">
+            <h2 class="text-3xl font-black mb-2 flex items-center">
+                <span class="w-8 h-1 bg-chiika-accent mr-3"></span>
+                核心摘要 <span class="ml-2 font-display text-gray-300">ABSTRACT</span>
+            </h2>
+        </div>
+        
+        <div class="bento-grid">
+            <div class="md:col-span-2 glass-card p-8 rounded-3xl flex flex-col justify-between border-l-4 border-l-chiika-pink">
+                <p class="text-xl font-medium leading-relaxed">《吉伊卡哇》由插畫家長野創作，自2020年連載以來成為橫掃亞洲的現象級IP，以可愛畫風包裹著寫實且冷酷的社會規則。</p>
+                <div class="mt-6 flex items-center text-chiika-accent font-bold">
+                    <span>Cultural Phenomenon</span>
+                </div>
+            </div>
+            <div class="md:col-span-1 glass-card p-8 rounded-3xl bg-chiika-dark text-white">
+                <h3 class="text-chiika-yellow text-lg font-bold mb-4">反烏托邦</h3>
+                <p class="text-gray-300 text-sm">包含勞動系統、等級制度及生存競爭，被視為現實社會的轉譯。</p>
+            </div>
+            <div class="md:col-span-1 glass-card p-8 rounded-3xl border-b-4 border-b-chiika-blue">
+                <h3 class="text-chiika-dark text-lg font-bold mb-4">情感象徵</h3>
+                <p class="text-gray-600 text-sm">脆弱面、理性面與自由意志的具象化體現。</p>
+            </div>
+            <div class="md:col-span-1 glass-card p-8 rounded-3xl">
+                <h3 class="text-chiika-accent text-lg font-bold mb-4">非典型可愛</h3>
+                <p class="text-gray-600 text-sm">接納了成年人在競爭社會中的焦慮與挫折。</p>
+            </div>
+            <div class="md:col-span-3 glass-card p-8 rounded-3xl bg-white/40 flex items-center">
+                <p class="text-lg italic text-gray-700">引發了龐大的「療癒經濟」，成為反映當代社會閉塞感的重要文化樣本。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section Middle -->
+    <section class="bg-chiika-dark py-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-12 opacity-10">
+            <svg width="200" height="200" viewBox="0 0 100 100" fill="white">
+                <circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" fill="none" />
+            </svg>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10">
+            <h2 class="text-white text-4xl font-black mb-6">視覺化分析影片</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                呈現角色在勞動系統中的努力、面對生存挑戰的勇氣，以及最後在彼此陪伴下共享晚餐的療癒時刻。
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/10">
+            <video src='https://opal.google/board/blobs/08e0dd6d-cadb-4004-bbaf-1e2dcb5e77af' alt='吉伊卡哇 研究報告摘要影片' class="w-full aspect-video object-cover" controls autoplay muted loop></video>
+        </div>
+        
+        <div class="max-w-xl mx-auto mt-12 glass-card rounded-2xl p-6 flex items-center gap-6">
+            <div class="w-12 h-12 bg-chiika-accent rounded-full flex items-center justify-center animate-pulse">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8v4a1 1 0 001.5.87l4-2a1 1 0 000-1.74l-4-2A1 1 0 007 8z"/></svg>
+            </div>
+            <div class="flex-1">
+                <div class="h-2 bg-gray-600 rounded-full w-full overflow-hidden">
+                    <div class="h-full bg-chiika-accent w-2/3"></div>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">BGM: 研究報告背景音軌</p>
+            </div>
+            <audio src='https://opal.google/board/blobs/38a376c0-3c73-4731-ac76-180845e583c7' alt='media_2' controls class="hidden"></audio>
+        </div>
+    </section>
+
+    <!-- Full Report Bottom -->
+    <section class="max-w-4xl mx-auto px-6 py-24">
+        <article class="report-content bg-white p-10 md:p-16 rounded-[3rem] shadow-xl border border-gray-100">
+            <div class="mb-12 border-b border-gray-100 pb-10">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">
+                    《吉伊卡哇》（ちいかわ）：<br/>療癒糖衣下的當代社會隱喻與心理共鳴
+                </h2>
+                <p class="text-chiika-accent font-bold tracking-widest">RESEARCH REPORT</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-2 h-8 bg-chiika-pink mr-4 rounded-full"></span>
+                一、 前言：從社群發跡的文化現象
+            </h3>
+            <p>
+                《吉伊卡哇》（ちいかわ，Chiikawa）是日本插畫家長野（ナガノ，Nagano）創作的漫畫作品，全名為「總之就是很小很可愛的傢伙」（なんか小さくてかわいいやつ），自2020年於社群平台 X（原 Twitter）連載後迅速爆紅。不同於傳統大眾文化（Pop Culture）中追求完美力量或純粹溫馨的角色形象，《吉伊卡哇》以獨特的殘酷世界觀與真實的人性刻畫，在短短數年間引發了大規模的社會熱潮，並被視為解讀當代日本及亞洲社會心理的重要視角。
+            </p>
+
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-2 h-8 bg-chiika-blue mr-4 rounded-full"></span>
+                二、 設定中的現實性：勞動系統與「反烏托邦」世界觀
+            </h3>
+            <p>
+                《吉伊卡哇》之所以引起成年讀者的深度共鳴，在於其可愛外殼下隱藏的寫實社會結構（Social Structure）與生存哲學：
+            </p>
+            <ul class="space-y-4 mb-8">
+                <li class="flex gap-4">
+                    <span class="font-display font-bold text-chiika-accent">01.</span>
+                    <span><strong>勞動系統（Labor System）與資本隱喻</strong>：故事中的角色並非過著無憂無慮的生活，而是必須透過「勞動」獲取報酬。從簡單的「貼貼紙」到危險程度極高的「討伐」（Punishment/Extermination），勞動所得僅能換取生存所需的伙食費。這種「不工作就無法生存」的設定，被認為是資本主義（Capitalism）社會的縮影。</span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="font-display font-bold text-chiika-accent">02.</span>
+                    <span><strong>階級制度與資格認證</strong>：世界中存在著「除草檢定」或「超級打工者」（Super Part-timer）等資格證照，檢定未通過便無法領取高額報酬。主角吉伊卡哇屢次考試失利，這種對失敗（Failure）與挫折的刻畫，深刻觸動了現代人對學歷與職場競爭的焦慮。</span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="font-display font-bold text-chiika-accent">03.</span>
+                    <span><strong>反烏托邦（Dystopia）色彩</strong>：世界觀中充斥著不確定性，如「奇美拉化」（Chimera Transformation，意指由角色突變為怪物）或不合理的災害。這種隨時可能崩潰的和平，使作品呈現出一種「在廢墟中尋找小確幸」的憂鬱氛圍。</span>
+                </li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-2 h-8 bg-chiika-yellow mr-4 rounded-full"></span>
+                三、 角色核心分析：心理防衛機制的投射
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="p-5 rounded-2xl bg-chiika-pink/20 border border-chiika-pink/30">
+                    <h4 class="font-bold text-gray-900 mb-2">吉伊卡哇</h4>
+                    <p class="text-sm leading-relaxed text-gray-600">代表「脆弱性」。象徵了現代人內心那個不完美、需要被接受的「真我」。</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-chiika-blue/20 border border-chiika-blue/30">
+                    <h4 class="font-bold text-gray-900 mb-2">小八貓</h4>
+                    <p class="text-sm leading-relaxed text-gray-600">代表「社會性與同理心」。象徵了大眾在苦難中仍試圖維持樂觀的「理想人格」。</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-chiika-yellow/20 border border-chiika-yellow/30">
+                    <h4 class="font-bold text-gray-900 mb-2">烏薩奇</h4>
+                    <p class="text-sm leading-relaxed text-gray-600">代表「超越性與自由」。是打破社會標籤與集體主義壓迫的自由象徵。</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-2 h-8 bg-gray-800 mr-4 rounded-full"></span>
+                四、 社會效應：為何大眾對其如此狂熱？
+            </h3>
+            <p>
+                1. <strong>療癒經濟（Healing Economy）的產值</strong>：在資訊過載與經濟低迷的時代，《吉伊卡哇》周邊商品的熱銷證明了人們願意為「具備陪伴感的療癒」買單。這種消費行為不僅是購買實體物品，更是購買一種情緒價值（Emotional Value）。<br/><br/>
+                2. <strong>弱者文化的共感</strong>：相較於鼓勵努力必有回報的傳統敘事，《吉伊卡哇》呈現了「努力了還是會落榜」的冷酷實相。在高度內卷（Involution）的社會壓力中，這種承認失敗的空間，反倒成為了成年人最重要的心理宣洩管道。<br/><br/>
+                3. <strong>關係性的再確認</strong>：評論家指出，作品中即便生活艱辛，角色間依然能夠分享一碗拉麵、共同觀看星空，這種「脆弱者間的連結」與互助關係，彌補了數位時代中人際關係的疏離。
+            </p>
+
+            <div class="bg-gray-50 p-8 rounded-2xl border-l-4 border-chiika-accent my-10">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">五、 簡要結論</h3>
+                <p class="mb-0 italic">
+                    《吉伊卡哇》不僅是一個成功的商業 IP，更是一個反映當代社會「生存焦慮」與「情感補償」的文化鏡像。它透過可愛與殘酷的極端對比，解構了傳統的幸福定義，告訴人們：在不合理的社會系統中，能與夥伴分享微小的快樂並接納彼此的脆弱，便是生存最重要的意義及其最高層次的療癒。
+                </p>
+            </div>
+
+            <div class="mt-16 pt-10 border-t border-gray-100">
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">參考文獻來源</h4>
+                <ol class="text-xs text-gray-500 space-y-2 list-decimal pl-4">
+                    <li>道満 綾香 (2024)。「ちいかわ」がこんなにも人気を集める納得理由 社会人は物語に共感、Z世代は推し活で人気。*東洋経済オンライン* (Toyo Keizai Online)。</li>
+                    <li>ダイヤモンド・ビジョナリー編集部 (2023)。「ちいかわ」はなぜここまで社會現象になったのか？。*Diamond Visionary*。</li>
+                    <li>小辻 寿規 (2023)。ちいかわ社會にみる「関係性としてのコミュニティ」。*社會福祉學術期刊/論壇評論*。</li>
+                    <li>RYU (2024)。ちいかわ論ーー資本主義的労働の実相與市場行銷分析。*現代商業 (Gendai Business) & Marketing Review*。</li>
+                    <li>ナガノ (2020-2024)。『ちいかわ なんか小さくてかわいいやつ』。*講談社 (Kodansha)*。</li>
+                </ol>
+            </div>
+        </article>
+    </section>
+
+    <!-- Centered Custom Footer Section (Per Instructions) -->
+    <div class="flex flex-col items-center justify-center py-20 px-6 border-t border-gray-200 bg-white/50">
+        <p class="text-lg font-medium text-gray-600 mb-2">
+            【主題探索報告】by <span class="italic text-red-600 font-bold">Famidoc Chang</span>
+        </p>
+        <p class="text-sm tracking-widest text-gray-400 font-display">
+            STUDENT ID: M11408051
+        </p>
+    </div>
+
+    <script>
+        // Subtle interaction for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.transition = 'all 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
